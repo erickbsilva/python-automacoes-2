@@ -1,0 +1,25 @@
+scrapy -h
+
+cd spiders 
+
+scrapy genspider bookspider books.toscrape.com
+
+pip install ipython
+
+No arquivo scrapy.cfg:
+
+- shell =ipython
+
+Executar comando scrapy shell
+
+> fetch('https://books.toscrape.com/')
+> response
+> response.css('article.product_pod')
+> response.css('article.product_pod').get()
+> books = response.css('article.product_pod')
+> len(books)
+Nessa aula
+> book = books[0]
+> book.css('h3 a::text').get()
+> book.css('.product_price .price_color::text').get()
+> book.css('h3 a').attrib['href']
